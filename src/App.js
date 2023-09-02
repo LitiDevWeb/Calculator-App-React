@@ -1,4 +1,14 @@
-import React, { useState, useRef } from "react";
+/****************************************************************************/
+/* Disclaimer:                                                              */
+/* - This is not the official solution provided by the course               */
+/* - The official solution is only unlocked after the learner has completed */
+/* the peer-graded assignment and submitted peer reviews                    */
+/****************************************************************************/
+
+import {
+  useState,
+  useRef
+} from "react";
 import "./App.css";
 
 function App() {
@@ -6,43 +16,50 @@ function App() {
   const resultRef = useRef(null);
   const [result, setResult] = useState(0);
 
-  function plus() {
+  function plus(e) {
     e.preventDefault();
-    setResult(prevResult => prevResult + Number(inputRef.current.value));
-  }
+    setResult((result) => result + Number(inputRef.current.value));
+  };
 
-  function minus() {
+  function minus(e) {
+    // Add the code for the minus function 
     e.preventDefault();
-    setResult(prevResult => prevResult - Number(inputRef.current.value));
-  }
+    setResult((result) => result - Number(inputRef.current.value));
+  };
 
-  function times() {
+  function times(e) {
+    // Add the code for the times function 
     e.preventDefault();
-    setResult(prevResult => prevResult * Number(inputRef.current.value));
-  }
+    setResult((result) => result * Number(inputRef.current.value));
+  };
 
-  function divide() {
+  function divide(e) {
+    // Add the code for the divide function
     e.preventDefault();
-    setResult(prevResult => prevResult / Number(inputRef.current.value));
-  }
+    setResult((result) => result / Number(inputRef.current.value));
+  };
 
-  function resetInput() {
+  function resetInput(e) {
+    // Add the code for the resetInput function 
     e.preventDefault();
-    inputRef.current.value = "";
-  }
+    inputRef.current.value = 0;
+  };
 
-  function resetResult() {
+  function resetResult(e) {
+    // Add the code for the resetResult function 
     e.preventDefault();
-    setResult(0);
-  }
+    setResult((preVal) => preVal * 0);
+  };
 
   return (
     <div className="App">
+      <div className="container">
       <div>
         <h1>Simplest Working Calculator</h1>
       </div>
       <form>
         <p ref={resultRef}>
+          {/* add the value of the current total */}
           {result}
         </p>
         <input
@@ -52,14 +69,20 @@ function App() {
           placeholder="Type a number"
         />
         <button onClick={plus}>add</button>
-        <button onClick={minus}>minus</button>
-        <button onClick={times}>times</button>
+        {/* Add the subtract button */}
+        <button onClick={minus}>subtract</button>
+        {/* Add the multiply button */}
+        <button onClick={times}>multiply</button>
+        {/* Add the divide button */}
         <button onClick={divide}>divide</button>
+        {/* Add the resetInput button */}
         <button onClick={resetInput}>reset input</button>
+        {/* Add the resetResult button */}
         <button onClick={resetResult}>reset result</button>
       </form>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default App; 
